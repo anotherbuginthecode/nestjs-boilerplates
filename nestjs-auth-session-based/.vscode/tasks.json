@@ -1,0 +1,20 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "tsc: build",
+      "type": "shell",
+      "command": "tsc -p .vscode/tsconfig.json",
+      "group": "build",
+      "problemMatcher": ["$tsc"],
+      "detail": "TypeScript: build project"
+    },
+    {
+      "label": "start:dev",
+      "type": "shell",
+      "command": "pnpm run start:dev",
+      "group": "none",
+      "detail": "NestJS: start in development mode"
+    }
+  ]
+}
