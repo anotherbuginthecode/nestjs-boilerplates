@@ -27,8 +27,6 @@ This project is a boilerplate for building authentication systems in NestJS usin
 ├── tsconfig*.json              # TypeScript configs
 ├── clipboard/                  # (Disabled) seed script
 ├── drizzle/                    # Drizzle migrations and metadata
-│   ├── 0000_stiff_skrulls.sql
-│   └── meta/
 ├── src/
 │   ├── app.module.ts           # Root NestJS module
 │   ├── main.ts                 # App entrypoint
@@ -82,7 +80,6 @@ This project is a boilerplate for building authentication systems in NestJS usin
 - `test:e2e` — Run end-to-end tests
 - `db:generate` — Generate Drizzle migrations
 - `db:migrate` — Run DB migrations
-- `db:seed` — Seed the database
 - `lint` — Run ESLint
 - `format` — Format code with Prettier
 
@@ -115,13 +112,7 @@ pnpm install
 pnpm db:migrate
 ```
 
-4. **Seed database** (optional):
-
-```sh
-pnpm db:seed
-```
-
-5. **Start development server**:
+4. **Start development server**:
 
 ```sh
 pnpm start:dev
@@ -145,3 +136,14 @@ UNLICENSED
 ---
 
 For more details, see the source code and comments in each module.
+
+## Next Steps
+
+1. **Create tests for Auth and Users modules**
+
+- Implement unit and integration tests for authentication and user management features.
+- Ensure coverage for controllers, services, and repositories in both modules.
+
+2. **Add comments in key parts of the codebase**
+
+- Document important logic, especially in services, use-cases, and entities.
