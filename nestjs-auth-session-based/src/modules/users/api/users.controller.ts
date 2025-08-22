@@ -1,4 +1,14 @@
-import { Controller, Get, Body, Param, Put, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Body,
+  Param,
+  Put,
+  Delete,
+  UseGuards,
+} from '@nestjs/common';
+import { SessionAuthGuard } from '../../../guards/session-auth.guard';
+import { CurrentUser } from '../../../common/decorators/current-user.decorator';
 import { ParseUUIDPipe } from '@nestjs/common/pipes/parse-uuid.pipe';
 import { GetAllUsersService } from '../application/use-cases/get-all-users.service';
 import { GetUserByIdService } from '../application/use-cases/get-user-by-id.service';
@@ -20,6 +30,12 @@ export class UsersController {
   @Get()
   getAllUsers() {
     return this.getAllUsersService.execute();
+  }
+
+  @Get('me')
+  @UseGuards(SessionAuthGuard)
+  getMe(@CurrentUser() currentUser: any) {
+    return currentUser?.user || null;
   }
 
   @Get(':id')

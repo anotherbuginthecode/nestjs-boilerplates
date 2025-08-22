@@ -1,10 +1,10 @@
 import { Injectable, Inject } from '@nestjs/common';
-import { SessionService } from '../services/session/session.service';
-import { SessionUser } from '../../domain/entities/session-user.entity';
+import { SessionService } from '../../../sessions/applications/session.service';
+import { SessionUser } from '../../../sessions/domain/entities/session-user.entity';
 import { GetUserByEmailService } from '@/modules/users/application/use-cases/get-user-by-email.service';
 import { LoginDto } from '../dto/login.dto';
 import { Logger } from 'nestjs-pino';
-import { SessionUserMapper } from '../../infrastructure/mappers/session.mapper';
+import { SessionUserMapper } from '@/modules/sessions/infrastructure/mappers/session.mapper';
 
 @Injectable()
 export class LoginService {

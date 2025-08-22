@@ -1,8 +1,8 @@
 import { Injectable, Inject } from '@nestjs/common';
-import { SessionRepository } from '../../../infrastructure/repositories/session.repository';
-import { SESSION_REPOSITORY } from '../../../domain/interfaces/session.interface';
-import { Session } from '../../../domain/entities/session.entity';
-import { SessionUser } from '../../../domain/entities/session-user.entity';
+import { SessionRepository } from '../infrastructure/repositories/session.repository';
+import { SESSION_REPOSITORY } from '../domain/interfaces/session.interface';
+import { Session } from '../domain/entities/session.entity';
+import { SessionUser } from '../domain/entities/session-user.entity';
 import { sha256 } from '@oslojs/crypto/sha2';
 import {
   encodeBase32LowerCaseNoPadding,
@@ -11,6 +11,11 @@ import {
 
 @Injectable()
 export class SessionService {
+  async getUserFromSession(sessionId: string): Promise<SessionUser | null> {
+    const result = await this.sessionRepository.findById(sessionId);
+    if (!result) return null;
+    return result;
+  }
   constructor(
     @Inject(SESSION_REPOSITORY)
     private readonly sessionRepository: SessionRepository,
