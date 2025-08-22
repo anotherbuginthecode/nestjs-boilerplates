@@ -3,6 +3,7 @@ import { GetUserByEmailService } from './use-cases/get-user-by-email.service';
 import { GetUserByIdService } from './use-cases/get-user-by-id.service';
 import { UpdateUserService } from './use-cases/update-user.service';
 import { DeleteUserService } from './use-cases/delete-user.service';
+import { CreateUserService } from './use-cases/create-user.service';
 
 export const USERS_USE_CASES = [
   GetAllUsersService,
@@ -10,6 +11,7 @@ export const USERS_USE_CASES = [
   GetUserByIdService,
   UpdateUserService,
   DeleteUserService,
+  CreateUserService,
 ];
 
 export default {
@@ -18,4 +20,5 @@ export default {
   GetUserByIdService,
   UpdateUserService,
   DeleteUserService,
+  CreateUserService,
 };
