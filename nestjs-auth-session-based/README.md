@@ -147,3 +147,12 @@ For more details, see the source code and comments in each module.
 2. **Add comments in key parts of the codebase**
 
 - Document important logic, especially in services, use-cases, and entities.
+
+3. **Add guards and interceptors**
+
+- Implement guards to protect private endpoints
+- Implement interceptors to standardize the response and the error messages
+
+4. **Add controllers to users module**
+
+- Implement some logic to retrieve users info like /me
