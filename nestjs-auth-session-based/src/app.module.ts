@@ -6,6 +6,7 @@ import { ZodValidationPipe } from 'nestjs-zod';
 import { v4 as uuidv4 } from 'uuid';
 import { AuthModule } from './modules/auth/auth.module';
 import { UsersModule } from './modules/users/users.module';
+import { SessionsModule } from './modules/sessions/sessions.module';
 
 @Module({
   imports: [
@@ -30,6 +31,7 @@ import { UsersModule } from './modules/users/users.module';
     }),
     AuthModule,
     UsersModule,
+    SessionsModule,
   ],
   controllers: [],
   providers: [],
