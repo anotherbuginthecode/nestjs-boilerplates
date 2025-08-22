@@ -19,6 +19,11 @@ import { UsersModule } from './modules/users/users.module';
             level: config.get('LOG_LEVEL') || 'debug', // Or any other config value
             genReqId: (request) =>
               request.headers['x-correlation-id'] || uuidv4(),
+            transport: {
+              level: 'debug',
+              target: 'pino-pretty',
+              options: { colorize: true, singleLine: true },
+            },
           },
         };
       },
