@@ -4,7 +4,7 @@ import { drizzle } from 'drizzle-orm/node-postgres';
 import { Pool } from 'pg';
 import { DATABASE_CONNECTION } from './database-connection';
 // ADD SCHEMA IMPORTS HERE
-import { sessionTable } from '@/modules/auth/infrastructure/models/schema';
+import { sessionTable } from '@/modules/sessions/infrastructure/models/schema';
 import { UserTable } from '@/modules/users/infrastructure/models/schema';
 
 @Module({
