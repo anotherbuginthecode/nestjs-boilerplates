@@ -1,8 +1,7 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { SessionService } from '../services/session/session.service';
 import { SessionUser } from '../../domain/entities/session-user.entity';
-import { UserRepository } from '@/modules/users/infrastructure/repositories/user.repository';
-import { USER_REPOSITORY } from '@/modules/users/domain/interfaces/user.interface';
+import { GetUserByEmailService } from '@/modules/users/application/use-cases/get-user-by-email.service';
 import { LoginDto } from '../dto/login.dto';
 import { Logger } from 'nestjs-pino';
 import { SessionUserMapper } from '../../infrastructure/mappers/session.mapper';
@@ -10,15 +9,15 @@ import { SessionUserMapper } from '../../infrastructure/mappers/session.mapper';
 @Injectable()
 export class LoginService {
   constructor(
-    @Inject(USER_REPOSITORY)
-    private readonly userRepository: UserRepository,
+    @Inject(GetUserByEmailService)
+    private readonly userService: GetUserByEmailService,
     @Inject(SessionService)
     private readonly sessionService: SessionService,
     private readonly logger: Logger,
   ) {}
 
   async execute({ email, password }: LoginDto): Promise<SessionUser | null> {
-    const user = await this.userRepository.findByEmail(email);
+    const user = await this.userService.execute(email);
 
     if (!user || !(await user.comparePassword(password, user.password))) {
       this.logger.warn(`Login failed for email: ${email}`);
