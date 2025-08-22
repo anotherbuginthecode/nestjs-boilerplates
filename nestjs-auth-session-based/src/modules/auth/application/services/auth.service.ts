@@ -1,6 +1,6 @@
 import { Injectable, Inject } from '@nestjs/common';
-import { LoginService } from '../use-cases/login.use-case';
-import { RegisterService } from '../use-cases/register.use-case';
+import { LoginService } from '../use-cases/login.service';
+import { RegisterService } from '../use-cases/register.service';
 
 @Injectable()
 export class AuthService {

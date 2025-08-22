@@ -1,5 +1,5 @@
-import { LoginService } from './login.use-case';
-import { RegisterService } from './register.use-case';
+import { LoginService } from './login.service';
+import { RegisterService } from './register.service';
 
 export const AUTH_USE_CASES = [LoginService, RegisterService];
 
